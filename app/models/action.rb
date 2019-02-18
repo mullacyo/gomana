@@ -1,3 +1,3 @@
 class Action < ApplicationRecord
-    has_and_belongs_to_many :outings
+    has_many :outings, through: :action_outings
 end

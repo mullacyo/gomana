@@ -1,0 +1,18 @@
+<h1>Add a New Outing!</h1>
+<%= form_with model: @outing, local: true do |form| %>
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_field :date %>
+  </div>
+  <div class="field">
+    <%= form.label :start_time %>
+    <%= form.time_field :start_time %>
+  </div>
+  <div class="field">
+    <%= form.label :end_time %>
+    <%= form.time_field :end_time %>
+  </div>
+  <div class="actions">
+    <%= form.submit "Submit" %>
+  </div>
+<% end %>

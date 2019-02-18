@@ -1,0 +1,11 @@
+<h1>Outing List</h1>
+
+<% @outings.each do |x| %>
+    <%= x.id %> <br>
+    <%= x.date %> <br>
+    <%= x.start_time.to_s(:time) %> <br>
+    <%= x.end_time.to_s(:time) %> <br>
+    Duration: <%=  (x.end_time - x.start_time).to_f %> s
+    <%= link_to "Show More", outing_path(x.id), method: :get %>
+    <br><br>
+<%end%>

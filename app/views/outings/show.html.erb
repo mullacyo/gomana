@@ -1,0 +1,9 @@
+<h1>Outing List</h1>
+
+
+<%= @outing.id %> <br>
+<%= @outing.date %> <br>
+<%= @outing.start_time.to_s(:time) %> <br>
+<%= @outing.end_time.to_s(:time) %> <br>
+Duration: <%=  (@outing.end_time - @outing.start_time).to_f %> s
+<br><br>
