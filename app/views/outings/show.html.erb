@@ -6,4 +6,5 @@
 <%= @outing.start_time.to_s(:time) %> <br>
 <%= @outing.end_time.to_s(:time) %> <br>
 Duration: <%=  (@outing.end_time - @outing.start_time).to_f %> s
+<%= button_to "Add Action", outing_actions_path(@outing.id), method: :get %>
 <br><br>

@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Seed actions
+
+action = {}
+
+    ActiveRecord::Base.transaction do
+        20.times do 
+          action['name'] = Faker::App.name
+          action['description'] = Faker::Hipster.sentence
+          action['location'] = Faker::Address.street_address
+            
+          Action.create(action)
+        end
+    end
