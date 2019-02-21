@@ -2,9 +2,13 @@ class ActionsController < ApplicationController
     def index
 
         @outing = Outing.find(params[:outing_id])
-        @actions = Action.all
-        @actions = @actions.where("lower(location) LIKE ?", "%#{params[:location].downcase}%") if params[:location]
-        
+        # @actions = Action.all
+        # @actions = @actions.where("lower(location) LIKE ?", "%#{params[:location].downcase}%") if params[:location]
+        if params[:location]
+            @actions = Action.where("lower(location) LIKE ?", "%#{params[:location].downcase}%")
+        else
+            @actions = Action.all
+        end
     end
     
     def new

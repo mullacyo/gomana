@@ -2,22 +2,12 @@
 
 <p>Outing ID: <%= @outing.id %></p>
 
-<%= form_with url: outing_actions_path, method: :get, local: true do |form| %>
+<%= form_with url: outing_actions_path, method: :get, remote: true do |form| %>
     <%= form.text_field :location, placeholder: "Location", list: "location_name" %>
     <%= form.submit "Submit"%>
 <% end %>
 <datalist id="location_name"></datalist>
 
-<% @actions.each do |x| %>
-    <% unless @outing.actions.exists?(x.id) %>
-        Action ID: <%= x.id %><br>
-        <%= x.name %><br>
-        <%= x.description %><br>
-        <%= x.location %><br>
-        <%= form_with url: outing_actions_path, local: true do |f| %>
-            <%= f.hidden_field :outing_id, value: @outing.id %>
-            <%= f.hidden_field :action_id, value: x.id %>
-            <%= f.submit "Add" %>
-        <% end %>
-    <% end %>
-<% end %>
+<div id='action-container'>
+    <%= render partial: 'index' %>
+</div>
