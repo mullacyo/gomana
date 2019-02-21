@@ -1,10 +1,23 @@
 <h1>Outing List</h1>
 
 
-<%= @outing.id %> <br>
-<%= @outing.date %> <br>
-<%= @outing.start_time.to_s(:time) %> <br>
-<%= @outing.end_time.to_s(:time) %> <br>
-Duration: <%=  (@outing.end_time - @outing.start_time).to_f %> s
-<%= button_to "Add Action", outing_actions_path(@outing.id), method: :get %>
-<br><br>
+<p>
+    <%= @outing.id %> <br>
+    <%= @outing.date %> <br>
+    <%= @outing.start_time.to_s(:time) %> <br>
+    <%= @outing.end_time.to_s(:time) %> <br>
+    Duration: <%=  (@outing.end_time - @outing.start_time).to_f %> s
+    <%= button_to "Add Action", outing_actions_path(@outing.id), method: :get %>
+</p>
+
+<h3>Current Actions:</h3>
+
+<% @outing.actions.each do |x| %>
+<p>
+    <%= x.id %>
+    <%= x.name %>
+    <%= x.description %>
+    <%= x.location %>
+    <%= link_to "Delete", outing_action_path(@outing.id, x.id), method: :delete, data: {confirm: 'Are you sure you want to delete this action?'}%>
+<p>
+<% end %>

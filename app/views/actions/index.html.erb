@@ -3,13 +3,15 @@ HI
 <%= @outing.id %>
 
 <% @actions.each do |x| %>
+    <% unless @outing.actions.exists?(x.id) %>
         <%= x.id %><br>
         <%= x.name %><br>
         <%= x.description %><br>
         <%= x.location %><br>
-    <%= form_with url: outing_actions_path, local: true do |f| %>
-        <%= f.hidden_field :outing_id, value: @outing.id %>
-        <%= f.hidden_field :action_id, value: x.id %>
-        <%= f.submit "Add" %>
+        <%= form_with url: outing_actions_path, local: true do |f| %>
+            <%= f.hidden_field :outing_id, value: @outing.id %>
+            <%= f.hidden_field :action_id, value: x.id %>
+            <%= f.submit "Add" %>
+        <% end %>
     <% end %>
 <% end %>

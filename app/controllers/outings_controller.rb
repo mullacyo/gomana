@@ -32,6 +32,7 @@ class OutingsController < ApplicationController
     end
 
     def destroy
+
     end
 
     private
