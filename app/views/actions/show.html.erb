@@ -1,0 +1,13 @@
+<h1>Add action to outing</h1>
+
+<p>Outing ID: <%= @outing.id %></p>
+
+        Action ID: <%= @action.id %><br>
+        <%= @action.name %><br>
+        <%= @action.description %><br>
+        <%= @action.location %><br>
+        <%= form_with url: outing_actions_path, local: true do |f| %>
+            <%= f.hidden_field :outing_id, value: @outing.id %>
+            <%= f.hidden_field :action_id, value: @action.id %>
+            <%= f.submit "Add" %>
+        <% end %>

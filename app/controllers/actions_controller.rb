@@ -1,33 +1,30 @@
 class ActionsController < ApplicationController
     def index
+
         @outing = Outing.find(params[:outing_id])
         @actions = Action.all
-        @actionsouting = ActionsOuting.new(outing_action_params)
-        if @actionsouting.save
-            render index
-        else
-            flash[:message] = "Please try again."
-        end
-            
+        @actions = @actions.where("lower(location) LIKE ?", "%#{params[:location].downcase}%") if params[:location]
+        
     end
-
+    
     def new
     end
-
+    
     def create
         @outing = Outing.find(params[:outing_id])
         actions_outing = ActionsOuting.new(outing_action_params)
         if actions_outing.save
             redirect_to outing_actions_path(@outing.id), method: :get
-            flash[:message] = "Saved!"
+            flash[:success] = "Your action was saved successfully."
         else
-            flash[:message] = "Please try again."
+            flash[:danger] = "Please try again."
         end
     end
-
+    
     def show
+        @action = Action.location(params[:location]) if params[:location].present?
     end
-
+    
     def edit
     end
 
@@ -37,11 +34,11 @@ class ActionsController < ApplicationController
     def destroy
         @actions_outing = ActionsOuting.where(outing_id: params[:outing_id]).find_by(action_id: params[:id])
         if @actions_outing.destroy
-            redirect_to outings_path
+            redirect_to outing_path(params[:outing_id])
             flash[:success] = "Your action was deleted successfully."
         else
-            redirect_to outings_path
-            flash[:danger] = "Failed to delete."
+            redirect_to outing_path(params[:outing_id])
+            flash[:danger] = "Please try again."
         end
     end
 
