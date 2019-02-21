@@ -26,10 +26,11 @@ ActiveRecord::Schema.define(version: 2019_02_16_090313) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "actions_outings", id: false, force: :cascade do |t|
-    t.bigint "action_id", null: false
-    t.bigint "outing_id", null: false
-    t.index ["action_id", "outing_id"], name: "index_actions_outings_on_action_id_and_outing_id"
+  create_table "actions_outings", force: :cascade do |t|
+    t.integer "action_id", null: false
+    t.integer "outing_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "outings", force: :cascade do |t|
@@ -40,10 +41,11 @@ ActiveRecord::Schema.define(version: 2019_02_16_090313) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "outings_users", id: false, force: :cascade do |t|
-    t.bigint "outing_id", null: false
-    t.bigint "user_id", null: false
-    t.index ["outing_id", "user_id"], name: "index_outings_users_on_outing_id_and_user_id"
+  create_table "outings_users", force: :cascade do |t|
+    t.integer "outing_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
