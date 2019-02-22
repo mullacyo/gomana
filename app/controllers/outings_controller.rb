@@ -13,6 +13,8 @@ class OutingsController < ApplicationController
         if @outing.save
             OutingsUser.create(user_id: current_user.id, outing_id: @outing.id)
             flash[:message] = "Saved!"
+            message = 'Hi'
+            WhatsappJob.perform_now(message)
             redirect_to root_path
         else
             flash[:message] = "Try again!"
