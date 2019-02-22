@@ -1,6 +1,6 @@
 class Action < ApplicationRecord
     validates :name, presence: true
-    validates :type
+    # validates :type
     validates :description, presence: true
     validates :location, presence: true
     validates :duration, presence: true

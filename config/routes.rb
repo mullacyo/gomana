@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   get 'welcome/index'
-
+  
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin', :constraints => AdminConstraint.new
+  
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :outings do 

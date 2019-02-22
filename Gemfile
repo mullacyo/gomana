@@ -70,3 +70,5 @@ gem 'faker'
 gem 'figaro'
 
 gem 'twilio-ruby'
+
+gem 'rails_admin', '~> 1.3'

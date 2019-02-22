@@ -8,4 +8,6 @@ class User < ApplicationRecord
 
   has_many :outings_users, dependent: :destroy
   has_many :outings, through: :outings_users
+
+  enum roles: [:user, :contributor, :admin]
 end
