@@ -1,15 +1,20 @@
-<p id="alert"><%= alert %></p>
-<h1>Login</h1>
-<%= form_tag sessions_path do |form| %>
-  <div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
+
+<div class="container card text-center" style="width: 30rem;">
+  <div class="card-body">
+    <p id="alert"><%= alert %></p>
+    <h1 class="display-4">Login</h1>
+    <%= form_tag sessions_path do |form| %>
+      <div class="field">
+        <%= label_tag :email %><br>
+        <%= text_field_tag :email %>
+      </div>
+      <div class="field">
+        <%= label_tag :password %><br>
+        <%= password_field_tag :password %>
+      </div>
+      <div class="actions" style="margin-top: 20px">
+        <%= submit_tag "Login", :class => 'btn btn-outline-success my-2 my-sm-0'%>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
-  <div class="actions">
-    <%= submit_tag "Login" %>
-  </div>
-<% end %>
+</div>

@@ -13,35 +13,35 @@
 
   <div class= "avatar-field">
     <%= form.label :avatar %>
-    <%= form.file_field :avatar%>
+    <%= form.file_field :avatar, :class => "form-control btn btn-outline-light my-2 my-sm-0"%>
   </div>
 
   <div class="field">
     <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+    <%= form.text_field :first_name, :class => "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+    <%= form.text_field :last_name, :class => "form-control" %>
   </div>
   
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, :class => "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :password %>
-    <%= form.password_field :password %>
+    <%= form.password_field :password, :class => "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
+    <%= form.password_field :password_confirmation, :class => "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions" style="margin-top: 20px">
+    <%= form.submit :class => "form-control btn btn-outline-success my-2 my-sm-0" %>
   </div>
 <% end %>

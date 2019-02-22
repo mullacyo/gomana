@@ -1,12 +1,14 @@
-<h1>Add action to outing</h1>
+<h1 class="display-4 text-center">Add Action to Outing</h1>
 
 <p>Outing ID: <%= @outing.id %></p>
 
-<%= form_with url: outing_actions_path, method: :get, remote: true do |form| %>
-    <%= form.text_field :location, placeholder: "Location", list: "location_name" %>
-    <%= form.submit "Submit"%>
-<% end %>
-<datalist id="location_name"></datalist>
+<div id='action-search-box' style='margin-bottom:20px'>
+    Search for Location: 
+    <%= form_with url: outing_actions_path, method: :get, remote: true do |form| %>
+        <%= form.text_field :location, placeholder: "Location", list: "location_name" %>
+        <%= form.submit "Submit"%>
+    <% end %>
+</div>
 
 <div id='action-container'>
     <%= render partial: 'index' %>

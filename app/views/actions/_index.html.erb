@@ -1,13 +1,21 @@
-<% @actions.each do |x| %>
-    <% unless @outing.actions.exists?(x.id) %>
-        Action ID: <%= x.id %><br>
-        <%= x.name %><br>
-        <%= x.description %><br>
-        <%= x.location %><br>
-        <%= form_with url: outing_actions_path, local: true do |f| %>
-            <%= f.hidden_field :outing_id, value: @outing.id %>
-            <%= f.hidden_field :action_id, value: x.id %>
-            <%= f.submit "Add" %>
+<div class="row">
+    <% @actions.each do |x| %>
+        <% unless @outing.actions.exists?(x.id) %>
+            <div class="col-sm-3">
+                <div class="card">
+                <div class="card-body">
+                    <b>Action ID:</b> <%= x.id %><br>
+                    <b>Name:</b> <%= x.name %><br>
+                    <b>Description:</b> <%= x.description %><br>
+                    <b>Location:</b> <%= x.location %><br>
+                    <%= form_with url: outing_actions_path, local: true do |f| %>
+                        <%= f.hidden_field :outing_id, value: @outing.id %>
+                        <%= f.hidden_field :action_id, value: x.id %>
+                        <%= f.submit "Add" %>
+                    <% end %>
+                </div>
+                </div>
+            </div>
         <% end %>
-    <% end %>
-<% end %>
+    <%end%>
+</div>

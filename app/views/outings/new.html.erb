@@ -1,18 +1,23 @@
-<h1>Add a New Outing!</h1>
-<%= form_with model: @outing, local: true do |form| %>
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_field :date %>
+<div class="container card" style="width: 30rem;">
+  <div class="card-body">
+    <p id="alert"><%= alert %></p>
+    <h1 class="display-4 text-center">New Outing</h1>
+      <%= form_with model: @outing, local: true do |form| %>
+        <div class="field">
+          <%= form.label :date %>
+          <%= form.date_field :date, :class => "form-control" %>
+        </div>
+        <div class="field">
+          <%= form.label :start_time %>
+          <%= form.time_field :start_time, :class => "form-control" %>
+        </div>
+        <div class="field">
+          <%= form.label :end_time %>
+          <%= form.time_field :end_time, :class => "form-control" %>
+        </div>
+        <div class="actions" style="margin-top: 20px">
+          <%= form.submit "Submit", :class => "form-control btn btn-outline-success my-2 my-sm-0" %>
+        </div>
+      <% end %>
   </div>
-  <div class="field">
-    <%= form.label :start_time %>
-    <%= form.time_field :start_time %>
-  </div>
-  <div class="field">
-    <%= form.label :end_time %>
-    <%= form.time_field :end_time %>
-  </div>
-  <div class="actions">
-    <%= form.submit "Submit" %>
-  </div>
-<% end %>
+</div>

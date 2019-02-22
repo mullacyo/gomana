@@ -1,11 +1,20 @@
-<h1>Outing List</h1>
+<div class="container text-center">
+    <h1 class="display-4 text-center">Outing List</h1>
+        <div class="row">
+        <% @outings.each do |x| %>
+            <div class="col-sm-3">
+                <div class="card">
+                <div class="card-body">
+                    Outing ID: <%= x.id %> <br>
+                    Date: <%= x.date %> <br>
+                    Start Time: <%= x.start_time.to_s(:time) %> <br>
+                    End Time: <%= x.end_time.to_s(:time) %> <br>
+                    Duration: <%=  (x.end_time - x.start_time).to_f/60 %> mins <br>
+                    <%= link_to "Show More", outing_path(x.id), method: :get, :class => "btn btn-outline-success my-2 my-sm-0" %>
+                </div>
+                </div>
+            </div>
+        <%end%>
+    </div>
+</div>
 
-<% @outings.each do |x| %>
-    <%= x.id %> <br>
-    <%= x.date %> <br>
-    <%= x.start_time.to_s(:time) %> <br>
-    <%= x.end_time.to_s(:time) %> <br>
-    Duration: <%=  (x.end_time - x.start_time).to_f %> s
-    <%= link_to "Show More", outing_path(x.id), method: :get %>
-    <br><br>
-<%end%>
