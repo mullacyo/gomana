@@ -13,7 +13,7 @@ class OutingsController < ApplicationController
         if @outing.save
             OutingsUser.create(user_id: current_user.id, outing_id: @outing.id)
             flash[:message] = "Saved!"
-            message = 'Hi'
+            message = 'You have created an outing on GoMana! Log in and check it out now.'
             WhatsappJob.perform_now(message)
             redirect_to root_path
         else

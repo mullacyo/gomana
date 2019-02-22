@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2019_02_22_043659) do
     t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "roles", default: 1
+    t.integer "roles", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
