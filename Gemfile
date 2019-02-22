@@ -72,3 +72,5 @@ gem 'figaro'
 gem 'twilio-ruby'
 
 gem 'rails_admin', '~> 1.3'
+
+gem 'rails_12factor', group: :production
